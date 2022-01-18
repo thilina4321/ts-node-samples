@@ -1,13 +1,6 @@
-import express from "express";
 import { connect } from "mongoose";
-import { authRouter } from "./router/auth-router";
-
-const app = express();
-const port = 3000;
-
-app.use(express.json());
-
-app.use(authRouter);
+import { app } from "./app";
+const port = 8000;
 
 connect("mongodb://127.0.0.1:27017/auth-users")
   .then(() => {

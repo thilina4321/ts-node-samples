@@ -4,15 +4,39 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "ts-node-dev src/index.ts"
+    "start": "ts-node-dev src/index.ts",
+    "test": "jest --watchAll --no-cache"
+  },
+  "jest": {
+    "preset": "ts-jest",
+    "testEnvironment": "node",
+    "setupFilesAfterEnv": [
+      "./src/test/setup.ts"
+    ]
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@ticketsz/common": "^1.0.2",
+    "@types/bcryptjs": "^2.4.2",
     "@types/express": "^4.17.13",
+    "@types/express-validator": "^3.0.0",
+    "@types/mongoose": "^5.11.97",
+    "bcryptjs": "^2.4.3",
     "express": "^4.17.1",
+    "express-async-errors": "^3.1.1",
+    "express-validator": "^6.13.0",
+    "mongoose": "^6.0.11",
     "ts-node-dev": "^1.1.8",
     "typescript": "^4.4.4"
+  },
+  "devDependencies": {
+    "@types/jest": "^27.4.0",
+    "@types/supertest": "^2.0.11",
+    "jest": "^27.4.7",
+    "mongodb-memory-server": "^8.2.0",
+    "supertest": "^6.2.1",
+    "ts-jest": "^27.1.3"
   }
 }
