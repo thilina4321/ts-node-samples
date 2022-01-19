@@ -8,7 +8,7 @@ import { ErrorHandling } from "./middleware/error-handling-middleware";
 import { currentUser } from "./middleware/current-user";
 const app = express();
 
-app.use(express.json());
+app.use(express.json()); 
 
 app.use(currentUser);
 app.use(authRouter);
