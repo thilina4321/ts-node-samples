@@ -26,9 +26,9 @@ const user = new mongoose.Schema(
   { timestamps: true }
 );
 
-user.statics.build = (attrs: UserAttrs) => {
-  return new User(attrs);
-};
+// user.statics.build = (attrs: UserAttrs) => {
+//   return new User(attrs);
+// };
 
 user.methods.toJSON = function () {
   const document: UserDoc = this;

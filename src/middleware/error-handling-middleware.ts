@@ -1,4 +1,4 @@
-import { CustomError } from "@ticketsz/common";
+import { CustomError } from "../error";
 import { Request, Response, NextFunction } from "express";
 
 export const ErrorHandling = (
@@ -13,5 +13,5 @@ export const ErrorHandling = (
 
   return res 
     .status(500)
-    .send({ errors: [{ message: "something went wrong" }] });
+    .send({ errors: [{ message: error.message }] });
 };
