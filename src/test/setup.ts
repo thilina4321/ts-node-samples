@@ -7,14 +7,12 @@ declare global {
   var signin: () => Promise<request.Response>;
 }
 
-
-
 let mongo: any;
 beforeAll(async () => {
-  // mongo = await MongoMemoryServer.create();
-  // const mongoUri = mongo.getUri();
+  mongo = await MongoMemoryServer.create();
+  const mongoUri = mongo.getUri();
 
-  // await mongoose.connect(mongoUri);
+  await mongoose.connect(mongoUri);
 });
 
 beforeEach(async () => {
@@ -33,9 +31,9 @@ afterAll(async () => {
 
 global.signin = async () => {
   const res = request(app)
-  .post("/auth/create-user")
-  .send({ email: "test@test.com", password: "password" })
-  .expect(201);
+    .post("/users/signup")
+    .send({ email: "test@test.com", password: "password" })
+    .expect(201);
 
   return res;
 };
