@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import jwt from "jsonwebtoken";
 
 // users attributes
 interface UserAttrs {
@@ -34,8 +35,9 @@ user.methods.toJSON = function () {
   const document: UserDoc = this;
   const documentObject = document.toObject();
   delete documentObject.password;
-  return documentObject
+  return documentObject;
 };
+
 
 const User = mongoose.model<UserDoc, UserModel>("user", user);
 

@@ -14,7 +14,7 @@ declare global {
   }
 }
 
-export const currentUser = (
+export const basicAuth = (
   req: Request,
   res: Response,
   next: NextFunction
@@ -26,6 +26,7 @@ export const currentUser = (
   const credentials = Buffer.from(base64Credentials, "base64").toString(
     "ascii"
   );
+  
   const [username, password] = credentials.split(":");
 
   

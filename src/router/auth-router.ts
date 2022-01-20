@@ -1,6 +1,6 @@
 import express from "express";
-import { signIn, signup, currentUser } from "../controller";
-import { validateRequest } from "../middleware";
+import { signIn, signup, currentUser, refreshToken } from "../controller";
+import { validateRequest, requireAuth } from "../middleware";
 import { body } from "express-validator";
 
 const router = express.Router();
@@ -29,5 +29,7 @@ router.post(
 );
 
 router.get("/users/current-user", currentUser);
+
+router.post("/users/refresh-token", requireAuth, refreshToken);
 
 export { router as authRouter };
